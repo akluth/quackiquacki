@@ -17,5 +17,4 @@
       (.setAudioPlayer audioplayer)
       (.speak text)
       (.deallocate))
-    (.close audioplayer)
-    ))
+    (.close audioplayer)))
