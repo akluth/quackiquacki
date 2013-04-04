@@ -14,7 +14,7 @@ Currently it is under heavy development.
 
 Clone the Repo, download [Leiningen](http://leiningen.org) and execute 
 
-       lein run
+       lein trampoline run --prompt
 
 in the root of the directory.
 
