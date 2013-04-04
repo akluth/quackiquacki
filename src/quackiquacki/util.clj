@@ -1,7 +1,12 @@
-(ns quackiquacki.util)
+(ns quackiquacki.util
+  (:use quackiquacki.speech))
 
-(def prompt
+(defn prompt []
+  (print "> ")
+  (flush)
   (loop [input (read-line)]
+  (print "> ")
   (when-not (= ":done" input)
-    (println (str "You entered: >>" input "<<"))
+    (say input)
+    (flush)
     (recur (read-line)))))
