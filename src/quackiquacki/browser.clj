@@ -28,4 +28,4 @@
 
 
 (defn get-title [url]
-  (say (first (map html/text (html/select (html/html-resource (java.net.URL. url)) [:head :title])))))
+  (say (first (map html/text (html/select (html/html-resource (java.net.URL. (str "http://" url))) [:head :title])))))

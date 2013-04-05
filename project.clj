@@ -15,7 +15,7 @@
 ; along with quackiquacki. If not, see <http://www.gnu.org/licenses/>. ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defproject quackiquacki "1.0.0-SNAPSHOT"
-  :description "FIXME: write description"
+  :description "quackiquacki - Browse the web with your voice!"
   :dependencies [
     [org.clojure/clojure "1.3.0"]
     [clojure-opennlp "0.2.0"]
