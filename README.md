@@ -3,7 +3,11 @@ quackiquacki - text-to-speech and speech recognition PoC
 
 ## Goal
 
-QuackiQuacki or quackiquacki is primary a proof-of-concept. It's goal is to provide the ability to navigate through the web and on websites only with your speech and to transform the content on websites, especially "Web 2.0" websites and web applications, to natural speech. 
+QuackiQuacki or quackiquacki is primary a proof-of-concept. It's goal is to provide the ability to navigate through the web and on websites only with your speech and to transform the content on websites, especially "Web 2.0" websites and web applications, to natural speech.
+
+It'll contain a learning database where QuackiQuacki will recognize different page structures to provide a better result when intepreting the content of the website.
+
+The goal is to provide a useful tool for blind and other handicapped people which can surf the web and use AJAX-apps with nothing more then their speech.
 
 It's heavily inspired by "Saria", a tool for controlling the PC and executing simple tasks via your speech, written by [Papierkorb](http://github.com/papierkorb).
 
@@ -17,6 +21,11 @@ Clone the Repo, download [Leiningen](http://leiningen.org) and execute
        lein trampoline run --prompt
 
 in the root of the directory.
+
+Enter 
+        :?
+
+to get a full list of commands. To get f.e. the title of a webpage, enter `:get-title http://google.de`.
 
 
 ## License
