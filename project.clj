@@ -30,6 +30,7 @@
     [org.clojure/tools.cli "0.2.2"]
     [edu.stanford.nlp/stanford-corenlp "1.3.4"]
     [org.clojure/java.jdbc "0.0.6"]
-    [org.xerial/sqlite-jdbc "3.7.2"]]
+    [org.xerial/sqlite-jdbc "3.7.2"]
+    [enlive "1.1.1"]]
   :ato [quackiquacki.core]
   :main quackiquacki.core)
