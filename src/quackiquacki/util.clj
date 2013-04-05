@@ -17,12 +17,34 @@
 (ns quackiquacki.util
   (:use quackiquacki.speech))
 
+(defn call [^String nm & args]
+    (when-let [fun (ns-resolve *ns* (symbol nm))]
+        (apply fun args)))
+
+(def cmd_keys [:? :quit :open])
+(def cmd_vals ["quackiquacki.util/help" "quackiquacki.util/quit" "browser/get"])
+(def cmds (zipmap cmd_keys cmd_vals))
+
+
 (defn prompt []
   (print "> ")
   (flush)
   (loop [input (read-line)]
   (print "> ")
-  (when-not (= ":quit" input)
-    (say input)
-    (flush)
-    (recur (read-line)))))
+  (if (re-find #"^:" input)
+    (call (get cmds (load-string input)))
+    (say input))
+  (flush)
+  (recur (read-line))))
+
+
+(defn help []
+  (flush)
+  (println "\n:?        - show help")
+  (println ":open URL - open URL")
+  (println ":quit     - exit program"))
+
+
+(defn quit []
+  (println "Exiting.\n")
+  (System/exit 0))
