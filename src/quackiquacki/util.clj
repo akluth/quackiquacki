@@ -20,10 +20,8 @@
     [quackiquacki.speech]
     [quackiquacki.browser]))
 
-(defn call [^String nm & args]
-    (when-let [fun (ns-resolve *ns* (symbol nm))]
-        (apply fun args)))
 
+;; Data structure for the commands and their respective functions
 (def cmd_keys [
   :?
   :quit 
@@ -37,11 +35,20 @@
 (def cmds (zipmap cmd_keys cmd_vals))
 
 
+;; Call a function evaluated from a string (with arguments)
+(defn call [^String nm & args]
+    (when-let [fun (ns-resolve *ns* (symbol nm))]
+        (apply fun args)))
+
+
+;; Parse a :command with arguments and call the function
 (defn parse-and-call [str]
   (let [cmd (first (split str #"\s")) args (rest (split str #"\s"))]
     (call (get cmds (load-string cmd)) (join " " args))))
 
 
+;; Simple evaluation prompt, when a :command is entered evaluate it, 
+;; else push the text through the TTS system
 (defn prompt []
   (print "> ")
   (flush)
