@@ -17,16 +17,19 @@
 (ns quackiquacki.browser
   (:require [clj-http.client :as client])
   (:require [net.cgrand.enlive-html :as html])
+  (:use clojure.pprint)
   (:use quackiquacki.speech))
 
-(def dom (atom ()))
+(def dom (atom {}))
 
 ;; Get the contents from a URL
 (defn get-url [url]
-  (swap! dom map html/text (html/html-resource (java.net.URL. (str "http://" url)))))
+  ;(swap! dom map (html/html-resource (java.net.URL. (str "http://" url)))))
+  (swap! dom hash-map (html/html-resource (java.net.URL. (str "http://" url)))))
 
 
 (defn get-title [tmp]
-  (println  dom :body)))
+  (let [content (vals @dom)]
+    (pprint content)))
 ;  (let [body (get dom :body)]
 ;    (say (first (html/select body [:head :title])))))
