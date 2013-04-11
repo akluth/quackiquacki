@@ -22,9 +22,11 @@
     (com.sun.speech.freetts.audio JavaStreamingAudioPlayer)
     (javax.sound.sampled AudioFileFormat$Type)))
 
+
 (System/setProperty "freetts.voices" "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory")
 
 (def voice-manager (. VoiceManager getInstance))
+
 
 (defn say [text]
   (let [audioplayer (doto (new JavaStreamingAudioPlayer))]
