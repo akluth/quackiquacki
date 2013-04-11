@@ -19,21 +19,14 @@
   (:require [net.cgrand.enlive-html :as html])
   (:use quackiquacki.speech))
 
-
-(def dom {})
+(def dom (atom ()))
 
 ;; Get the contents from a URL
-;;TODO: really needed when using html-resource?
 (defn get-url [url]
-  (let [response (client/get url)]
-    (get response :body)))
+  (swap! dom map html/text (html/html-resource (java.net.URL. (str "http://" url)))))
 
 
-(defn get-url [url]
-  (var-set dom (map html/text  (html/html-resource (java.net.URL. (str "http://" url))))))
-
-
-(defn get-title [url]
-  (say (first (map html/text (html/select (html/html-resource (java.net.URL. (str "http://" url))) [:head :title])))))
-
-
+(defn get-title [tmp]
+  (println  dom :body)))
+;  (let [body (get dom :body)]
+;    (say (first (html/select body [:head :title])))))

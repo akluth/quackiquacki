@@ -32,5 +32,6 @@
     [org.clojure/java.jdbc "0.0.6"]
     [org.xerial/sqlite-jdbc "3.7.2"]
     [enlive "1.1.1"]]
+  :jvm-opts ["-Xmx512m"]
   :ato [quackiquacki.core]
   :main quackiquacki.core)

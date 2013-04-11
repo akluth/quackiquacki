@@ -16,7 +16,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (ns quackiquacki.util
   (:use [clojure.string :only (join split)])
-  (:use 
+  (:use
     [quackiquacki.speech]
     [quackiquacki.browser]))
 
@@ -24,13 +24,13 @@
 ;; Data structure for the commands and their respective functions
 (def cmd_keys [
   :?
-  :quit 
+  :quit
   :get-url
   :get-title])
 (def cmd_vals [
-  "quackiquacki.util/help" 
-  "quackiquacki.util/quit" 
-  "quackiquacki.browser/get-url" 
+  "quackiquacki.util/help"
+  "quackiquacki.util/quit"
+  "quackiquacki.browser/get-url"
   "quackiquacki.browser/get-title"])
 (def cmds (zipmap cmd_keys cmd_vals))
 
@@ -47,7 +47,7 @@
     (call (get cmds (load-string cmd)) (join " " args))))
 
 
-;; Simple evaluation prompt, when a :command is entered evaluate it, 
+;; Simple evaluation prompt, when a :command is entered evaluate it,
 ;; else push the text through the TTS system
 (defn prompt []
   (print "> ")
